@@ -34,3 +34,9 @@ To load a state, you may press one of the following keybindings:
 Be sure to save a new state for save files you want to keep **before** using this feature.
 
 **Note:** if you're at the main menu when you press the keybindings, the game will not catch up with the data and will show the wrong details when you try to load it. Don't worry: the data is there, so if you load the game, it will load your state properly. If there wasn't a save in that slot previously, you may need to restart the game.
+
+### TODO
+
+- custom keybindings
+- cache clearing
+- saves portability from one pc to another
