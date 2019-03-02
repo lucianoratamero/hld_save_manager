@@ -106,6 +106,8 @@ class Application(tk.Frame):
         self.configs_display.pack(side="top")
 
     def create_widgets(self):
+        self.winfo_toplevel().title("HLD Save Manager")
+
         self.create_save_state_button = tk.Button(self)
         self.create_save_state_button["text"] = "Create save state from save"
         self.create_save_state_button["command"] = self.create_save_state
