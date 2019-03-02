@@ -38,10 +38,10 @@ class Application(tk.Frame):
 
         self.setup_dirs_and_configs()
 
-        keyboard.add_hotkey('ctrl+z', self.load_save_state, args=["0"])
-        keyboard.add_hotkey('ctrl+x', self.load_save_state, args=["1"])
-        keyboard.add_hotkey('ctrl+c', self.load_save_state, args=["2"])
-        keyboard.add_hotkey('ctrl+v', self.load_save_state, args=["3"])
+        keyboard.add_hotkey('ctrl+shift+z', self.load_save_state, args=["0"])
+        keyboard.add_hotkey('ctrl+shift+x', self.load_save_state, args=["1"])
+        keyboard.add_hotkey('ctrl+shift+c', self.load_save_state, args=["2"])
+        keyboard.add_hotkey('ctrl+shift+v', self.load_save_state, args=["3"])
 
         self.update_configs_display()
 
@@ -49,7 +49,7 @@ class Application(tk.Frame):
         if not os.path.exists(self.manager_save_folder):
             os.makedirs(self.manager_save_folder)
         try:
-            with open('config.json', 'r') as configs:
+            with open(Path(f'{self.manager_save_folder}\\config.json'), 'r') as configs:
                 self.configs = json.loads(configs.read())
                 messagebox.showinfo("Loaded successfully", "Previous binds successfully loaded")
         except FileNotFoundError:
@@ -78,7 +78,7 @@ class Application(tk.Frame):
 
     def set_save_state_file(self, save_state="0"):
         filename = filedialog.askopenfilename(
-            initialdir='.',
+            initialdir=self.manager_save_folder,
             title=f"Select file for save slot {save_state}",
             filetypes=(("HLD save file", "*.sav"),)
         )
@@ -94,7 +94,7 @@ class Application(tk.Frame):
             messagebox.showwarning('Error', f'No save state found for slot {save_state}')
 
     def on_closing(self):
-        with open('config.json', 'w+') as configs:
+        with open(Path(f'{self.manager_save_folder}\\config.json'), 'w+') as configs:
             configs.write(json.dumps(self.configs))
         self.root.destroy()
 
