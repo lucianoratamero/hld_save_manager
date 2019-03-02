@@ -4,7 +4,7 @@ This project **tries** to implement a save/load state feature for Hyper Light Dr
 
 ## Usage
 
-Download the [current exe file](./raw/master/dist/hld_save_manager.exe) and open it.
+Download the [current exe file](https://github.com/lucianoratamero/hld_save_manager/raw/master/dist/hld_save_manager.exe) and open it.
 
 ### Creating save states
 
